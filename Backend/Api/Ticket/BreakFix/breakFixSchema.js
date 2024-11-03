@@ -51,6 +51,11 @@ const breakFixSchema = mongoose.Schema({
     otherUserID:{
         type:String,
         trim:true
+    },
+    ticketStatus:{
+        type:String,
+        default:'Pending',
+        enum:['Pending', 'Fullfillment', 'Closed']
     }
 },
 {

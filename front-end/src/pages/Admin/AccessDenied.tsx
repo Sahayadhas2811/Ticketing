@@ -110,6 +110,18 @@ const AccessDenied:React.FC = ()=>{
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 />
+                                
+                                <Button
+                                type="submit"
+                                disabled={isLoading}
+                                fullWidth
+                                variant="contained"
+                                sx={{
+                                    mt:2
+                                }}
+                                >
+                                    Submit
+                                </Button>
                             </Form>
                         )
                     }}

@@ -1,19 +1,21 @@
 import react, { useEffect, useState } from 'react';
 import Sidebar from '../pages/Components/Sidebar'
-import { Box, Button, colors, Dialog, DialogActions, DialogContent, DialogTitle, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow } from '@mui/material';
+import { Box, Button, colors, Dialog, DialogActions, DialogContent, 
+    DialogTitle, Paper, Table, TableBody, TableCell, TableContainer, 
+    TableHead, TablePagination, TableRow } from '@mui/material';
 import Header from './Components/Header';
 import { axiosPrivate } from '../axios/Axios';
 import { jwtDecode } from 'jwt-decode';
 
 interface ticketdetails{
-    _id:string,
-    projectType:string,
-    supportType:string,
-    otherUserID:string,
-    userID:string,
-    modeOfContact:string,
-    requestingFor:string,
-    issueDescription:string,
+    _id:string,                                 
+    projectType:string,                                 
+    supportType:string,                                 
+    otherUserID:string,                                 
+    userID:string,                                  
+    modeOfContact:string,                                   
+    requestingFor:string,                                   
+    issueDescription:string,                                   
 }
 
 const Dashboard:React.FC = ()=>{
@@ -101,8 +103,7 @@ const Dashboard:React.FC = ()=>{
                         <TableCell>{ticket._id}</TableCell>
                         <TableCell>{ticket.projectType}</TableCell>
                         <TableCell>{ticket.supportType}</TableCell>
-                        <TableCell>{ticket.otherUserID}</TableCell>
-
+                        <TableCell>{ticket.otherUserID}</TableCell> 
                     </TableRow>
                 ))}
                 </TableBody>

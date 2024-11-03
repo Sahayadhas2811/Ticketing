@@ -8,7 +8,8 @@ module.exports = {
     createBreakFix,
     getTicket,
     updateTicket,
-    deleteTicket
+    deleteTicket,
+    getAllTicket
 };
 
 
@@ -24,7 +25,8 @@ async function createBreakFix(body){
             modeOfContact:body.modeOfContact,
             supportType:body.supportType,
             requestingFor:body.requestingFor,
-            otherUserID:body.otherUserID
+            otherUserID:body.otherUserID,
+            ticketsDetail:body.ticketsDetail
         })
         await createTicket.save();
 
@@ -116,6 +118,7 @@ async function getTicket(userID){
                 supportType:1,
                 requestingFor:1,
                 otherUserID:1,
+                ticketsDetail:1
             }}
         ]);
         if (getDetail.length === 0) {
@@ -126,17 +129,28 @@ async function getTicket(userID){
         throw new Error(error.message);
     }
 };
+
+async function getAllTicket(){
+    try {
+        const getData = await BreakFix.find({});
+        console.log("GetTickets:", getData)
+        return {message:'Success', data:getData}
+    } catch (error) {
+        return {message:error.message}
+    }
+}
  
 async function updateTicket(id, body){
     console.log("body;", body);
     try {
-        const update = await BreakFix.findOneAndUpdate({userID:id},
+        const update = await BreakFix.findOneAndUpdate({_id:id},
             {$set:{
                 projectType:body.projectType,
                 issueDescription:body.issueDescription,
                 modeOfContact:body.modeOfContact,
                 supportType:body.supportType,
                 requestingFor:body.requestingFor,
+                ticketStatus:body.ticketStatus,
             }},
             {new:true}
         );

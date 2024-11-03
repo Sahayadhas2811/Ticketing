@@ -7,6 +7,7 @@ module.exports = router
  
 router.post('/CreateBreakFix', createFix);
 router.get('/GetBreakFix', getFix);
+router.get('/getAllBreakFix', getAllFix)
 router.put('/UpdateBreakFix', updateFix);
 router.delete('/DeleteBreakFix', deleteFix);
  
@@ -23,6 +24,12 @@ function getFix(req, res, next){
         new ResObject(res, obj)
     }).catch(next)
 };
+
+function getAllFix(req, res, next){
+    breakFixService.getAllTicket().then(obj=>{
+        new ResObject(res, obj)
+    }).catch(next)
+}
  
 function updateFix(req, res, next){
     const id = req.query._id ?? {};

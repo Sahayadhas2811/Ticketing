@@ -8,6 +8,7 @@ import { Box, Drawer, Typography, Divider, List, ListItem, ListItemIcon, ListIte
 import LogoutIcon from '@mui/icons-material/Logout';
 import { axiosPrivate } from '../../axios/Axios';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+import BackupTableIcon from '@mui/icons-material/BackupTable';
 import { toast } from 'react-toastify';
 import { Form, Formik } from 'formik';
 
@@ -62,7 +63,8 @@ const Home: React.FC = () => {
     { text: 'Profile', icon: <AccountCircleIcon />, action: 'Profile' },
     { text: 'Dashboard', icon: <HomeIcon />, route: '/Dashboard' },
     { text: 'Tickets', icon: <InfoIcon />, route: '/Ticket' },
-    { text:'AdminPage', icon:<AdminPanelSettingsIcon/>, action: 'adminRequest' }
+    { text:'AdminRequest', icon:<AdminPanelSettingsIcon/>, action: 'adminRequest' },
+    { text:'AdminDashBoard', icon:<BackupTableIcon/>, route: '/AdminDashboard'}
   ];
 
   const handleMenuClick =(item:any)=>{

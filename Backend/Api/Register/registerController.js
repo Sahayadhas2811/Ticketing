@@ -68,3 +68,4 @@ async function deleteRegister(req, res, next){
         next(error);
     })
 }
+

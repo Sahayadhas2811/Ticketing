@@ -22,7 +22,7 @@ const authProvider = (req, res, next) => {
         // Attach the decoded token (user info) to the req object
         req.user = decoded;
 
-        // Call the next middleware or route handler
+        // Calle  thnext middleware or route handler
         next();
     } catch (error) {
         // Handle invalid token

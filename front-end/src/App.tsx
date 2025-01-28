@@ -13,10 +13,17 @@ import MainPage from './pages/MainPage'
 import AdminDashboard from './pages/Admin/AdminDashboard';
 import ProtectedRoute from './pages/ProtectRouteHandler/ProtectedRoute';
 import AccessDenied from './pages/Admin/AccessDenied';
+import ReduxCounterReact from './pages/Practise/ReduxCounterReact';
+import TodoRedux from './pages/Practise/TodoRedux';
+import CounterPage from './pages/Practise/contextPage/CounterPage';
+import { CounterContext } from './pages/Practise/contextApi/CounterContext';
+import ParentSearch from './pages/Practise/CallBack/ParentSearch'
+import FocusPointInput from './pages/Practise/UseRef/FocusInput';
 
 const App: React.FC = ()=>{
   return(
-    <Router>
+    <CounterContext>
+      <Router>
       <Routes>
         <Route path='/' element={<MainPage/>}/>
         <Route path='/RegisterUser' element={
@@ -24,6 +31,18 @@ const App: React.FC = ()=>{
           }/>
         <Route path='/Login' element={
             <Login/>
+          }/>
+          <Route path='/Practise' element={
+            <ReduxCounterReact/>
+          }/>
+          <Route path='/Practise1' element={
+            <TodoRedux/>
+          }/>
+          <Route path='/Practise2' element ={
+            <CounterPage/>
+          }/>
+          <Route path='/Practise3' element ={
+            <FocusPointInput/>
           }/>
         <Route path='/Home' element={
           <ProtectedRoute allowedRole={['Admin', 'User']}>
@@ -72,6 +91,7 @@ const App: React.FC = ()=>{
         pauseOnHover            
       />
     </Router>
+    </CounterContext>
   )
 }
 

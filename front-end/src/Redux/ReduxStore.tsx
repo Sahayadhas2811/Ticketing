@@ -1,11 +1,17 @@
-import authReducer from './AuthSlice'
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore } from "@reduxjs/toolkit";
+import AuthSlice from './AuthSlice';
+import countSlice from '../Redux/ReduxPractise/CounterSlice';
+import TodoSlice from '../Redux/ReduxPractise/TodoSlice'
 
-export const store = configureStore({
+const store = configureStore({
     reducer:{
-        auth:authReducer,
+        auth: AuthSlice,
+        counter: countSlice,
+        to_do:TodoSlice
     }
 });
 
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
+export type RootState = ReturnType<typeof store.getState>;
+export type dispatch = typeof store.dispatch;
+
+export default store;

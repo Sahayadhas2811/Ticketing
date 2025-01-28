@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import {store} from './Redux/ReduxStore';
+import store from './Redux/ReduxStore';
 import { Provider } from 'react-redux';
 // import { CssVarsProvider } from '@mui/joy/styles'; // Import CssVarsProvider
 
